@@ -2,6 +2,7 @@
 
 namespace yii2lab\geo\api\controllers;
 
+use common\enums\rbac\PermissionEnum;
 use yii2lab\domain\rest\ActiveControllerWithQuery as Controller;
 
 class CountryController extends Controller
@@ -33,7 +34,7 @@ class CountryController extends Controller
 				'rules' => [
 					[
 						'allow' => true,
-						'roles' => ['geo.country.manage'],
+						'roles' => [PermissionEnum::GEO_COUNTRY_MANAGE],
 					],
 				],
 			],

@@ -2,6 +2,7 @@
 
 namespace yii2lab\geo\api\controllers;
 
+use common\enums\rbac\PermissionEnum;
 use yii2lab\domain\rest\ActiveControllerWithQuery as Controller;
 
 class CurrencyController extends Controller
@@ -24,7 +25,7 @@ class CurrencyController extends Controller
 				'rules' => [
 					[
 						'allow' => true,
-						'roles' => ['geo.currency.manage'],
+						'roles' => [PermissionEnum::GEO_CURRENCY_MANAGE],
 					],
 				],
 			],
