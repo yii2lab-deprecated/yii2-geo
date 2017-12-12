@@ -5,9 +5,9 @@ use yii2lab\migration\db\MigrationCreateTable as Migration;
 /**
 * Handles the creation of table `region`.
 */
-class m170811_104142_create_region_table extends Migration
+class m170505_104142_create_geo_region_table extends Migration
 {
-	public $table = '{{%region}}';
+	public $table = '{{%geo_region}}';
 
 	/**
 	 * @inheritdoc
@@ -17,15 +17,19 @@ class m170811_104142_create_region_table extends Migration
 		return [
 			'id' => $this->primaryKey(),
 			'country_id' => $this->integer(),
-			'title' => $this->string(),
-			'date_change' => $this->timestamp(),
+			'name' => $this->string(64),
 		];
-
 	}
 
 	public function afterCreate()
 	{
-		
+        $this->myAddForeignKey(
+            'country_id',
+            '{{%geo_country}}',
+            'id',
+            'CASCADE',
+            'CASCADE'
+        );
 	}
 
 }
