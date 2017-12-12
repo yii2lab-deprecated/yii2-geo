@@ -1,7 +1,6 @@
 <?php
 namespace yii2lab\geo\domain\models;
 
-use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 class Region extends ActiveRecord 
@@ -12,26 +11,12 @@ class Region extends ActiveRecord
 	 */
 	public static function tableName()
 	{
-		return '{{%region}}';
-	}
-	
-	public function behaviors()
-	{
-		return [
-			'timestamp' => [
-				'class' => TimestampBehavior::className(),
-				'attributes' => [
-					ActiveRecord::EVENT_BEFORE_INSERT => 'date_change',
-					ActiveRecord::EVENT_BEFORE_UPDATE => 'date_change',
-				],
-				'value' => function() { return date('Y-m-d H:i:s'); },
-			],
-		];
+		return '{{%geo_region}}';
 	}
 	
 	public function extraFields()
 	{
-		return ['country', 'cities'];
+		return ['country'/*, 'cities'*/];
 	}
 	
 	/**
@@ -39,7 +24,7 @@ class Region extends ActiveRecord
 	 */
 	public function getCountry()
 	{
-		return $this->hasOne(Country::className(), ['code' => 'country_id']);
+		return $this->hasOne(Country::className(), ['id' => 'country_id']);
 	}
 
 	/**

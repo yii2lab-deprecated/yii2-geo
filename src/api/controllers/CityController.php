@@ -9,16 +9,7 @@ class CityController extends Controller
 {
 	
 	public $serviceName = 'geo.city';
-	
-	public function format() {
-		return [
-			'date_change' => 'time:api',
-			'country' => [
-				'date_change' => 'time:api',
-			],
-		];
-	}
-	
+
 	/**
 	 * @inheritdoc
 	 */

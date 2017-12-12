@@ -6,4 +6,10 @@ use yii2lab\domain\repositories\ActiveArRepository;
 
 class RegionRepository extends ActiveArRepository {
 
+    public function uniqueFields() {
+        return [
+            ['name'],
+        ];
+    }
+
 }

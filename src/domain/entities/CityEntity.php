@@ -5,24 +5,20 @@ namespace yii2lab\geo\domain\entities;
 use yii2lab\domain\BaseEntity;
 
 class CityEntity extends BaseEntity {
-	
+
 	protected $id;
-	protected $id_country;
-	protected $region_id;
-	protected $city_name;
-	protected $position;
-	protected $status;
-	protected $date_change;
-	protected $country;
-	protected $region;
+    protected $country_id;
+    protected $region_id;
+    protected $name;
+    protected $country;
+    protected $region;
 
 	public function rules() {
 		return [
-			[['id', 'id_country', 'city_name'], 'required'],
-			//[['id', 'city_name'], 'unique'],
-			[['city_name'], 'trim'],
-			['city_name', 'string', 'min' => 2],
-			[['id', 'id_country', 'region_id', 'position', 'status'], 'integer'],
+			[['id', 'country_id', 'name'], 'required'],
+			[['name'], 'trim'],
+			['name', 'string', 'min' => 2],
+			[['id', 'country_id', 'region_id'], 'integer'],
 		];
 	}
 	

@@ -11,7 +11,7 @@ class Currency extends ActiveRecord
 	 */
 	public static function tableName()
 	{
-		return '{{%currency}}';
+		return '{{%geo_currency}}';
 	}
 	
 	public function extraFields()
@@ -24,7 +24,7 @@ class Currency extends ActiveRecord
 	 */
 	public function getCountry()
 	{
-		return $this->hasOne(Country::className(), ['code_curr' => 'code']);
+		return $this->hasOne(Country::className(), ['id' => 'country_id']);
 	}
 	
 }

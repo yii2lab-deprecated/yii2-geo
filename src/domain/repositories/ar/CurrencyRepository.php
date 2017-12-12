@@ -8,7 +8,7 @@ class CurrencyRepository extends ActiveArRepository {
 	
 	public function uniqueFields() {
 		return [
-			['symb_def'],
+			['code'],
 		];
 	}
 	

@@ -10,17 +10,6 @@ class RegionController extends Controller
 	
 	public $serviceName = 'geo.region';
 
-	public function format() {
-		return [
-			'country' => [
-				'date_change' => 'time:api',
-			],
-			'cities' => [
-				'date_change' => 'time:api',
-			],
-		];
-	}
-
 	/**
 	 * @inheritdoc
 	 */

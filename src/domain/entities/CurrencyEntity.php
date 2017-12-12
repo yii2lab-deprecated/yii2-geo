@@ -5,21 +5,21 @@ namespace yii2lab\geo\domain\entities;
 use yii2lab\domain\BaseEntity;
 
 class CurrencyEntity extends BaseEntity {
-	
-	protected $code;
-	protected $symb_def;
-	protected $name_cur;
-	protected $descr;
-	protected $country;
 
-	public function rules() {
-		return [
-			[['code', 'symb_def', 'name_cur'], 'required'],
-			//[['code', 'symb_def', 'name_cur'], 'unique'],
-			[['symb_def', 'name_cur', 'descr'], 'trim'],
-			[['symb_def', 'name_cur'], 'string', 'min' => 2],
-			[['code'], 'integer'],
-		];
-	}
+    protected $id;
+    protected $country_id;
+    protected $code;
+    protected $name;
+    protected $description;
+    protected $country;
+
+    public function rules() {
+        return [
+            [['id', 'name', 'code', 'country_id'], 'required'],
+            [['name', 'code'], 'trim'],
+            [['name', 'code'], 'string', 'min' => 2],
+            [['id', 'country_id'], 'integer'],
+        ];
+    }
 	
 }

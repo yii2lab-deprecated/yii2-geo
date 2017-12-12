@@ -7,16 +7,16 @@ use yii2lab\domain\BaseEntity;
 class RegionEntity extends BaseEntity {
 	
 	protected $id;
-	protected $country_id;
-	protected $title;
-	protected $country;
-	protected $cities;
-	
+    protected $country_id;
+    protected $name;
+    protected $country;
+    //protected $cities;
+
 	public function rules() {
 		return [
-			[['title'], 'trim'],
-			[['title', 'country_id'], 'required'],
-			[['country_id'], 'integer'],
+			[['name'], 'trim'],
+			[['name', 'country_id'], 'required'],
+			[['id', 'country_id'], 'integer'],
 		];
 	}
 	

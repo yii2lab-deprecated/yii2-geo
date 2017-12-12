@@ -2,7 +2,6 @@
 namespace yii2lab\geo\domain\models;
 
 use yii\db\ActiveRecord;
-use yii\behaviors\TimestampBehavior;
 
 class City extends ActiveRecord 
 {
@@ -12,21 +11,7 @@ class City extends ActiveRecord
 	 */
 	public static function tableName()
 	{
-		return '{{%city}}';
-	}
-	
-	public function behaviors()
-	{
-		return [
-			'timestamp' => [
-				'class' => TimestampBehavior::className(),
-				'attributes' => [
-					ActiveRecord::EVENT_BEFORE_INSERT => 'date_change',
-					ActiveRecord::EVENT_BEFORE_UPDATE => 'date_change',
-				],
-				'value' => function() { return date('Y-m-d H:i:s'); },
-			],
-		];
+		return '{{%geo_city}}';
 	}
 	
 	public function extraFields()
@@ -39,7 +24,7 @@ class City extends ActiveRecord
 	 */
 	public function getCountry()
 	{
-		return $this->hasOne(Country::className(), ['code' => 'id_country']);
+		return $this->hasOne(Country::className(), ['id' => 'country_id']);
 	}
 
 	/**

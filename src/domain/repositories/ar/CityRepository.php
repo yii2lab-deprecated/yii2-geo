@@ -9,7 +9,7 @@ class CityRepository extends ActiveArRepository {
 	
 	public function uniqueFields() {
 		return [
-			['city_name'],
+			['name'],
 		];
 	}
 	

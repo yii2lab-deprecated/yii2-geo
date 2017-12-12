@@ -9,16 +9,7 @@ class CountryController extends Controller
 {
 	
 	public $serviceName = 'geo.country';
-	
-	public function format() {
-		return [
-			'date_change' => 'time:api',
-			'cities' => [
-				'date_change' => 'time:api',
-			],
-		];
-	}
-	
+
 	/**
 	 * @inheritdoc
 	 */
