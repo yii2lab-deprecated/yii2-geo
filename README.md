@@ -1,3 +1,6 @@
+[![Latest Stable Version](https://poser.pugx.org/yii2lab/yii2-geo/v/stable.png)](https://packagist.org/packages/yii2lab/yii2-geo)
+[![Total Downloads](https://poser.pugx.org/yii2lab/yii2-geo/downloads.png)](https://packagist.org/packages/yii2lab/yii2-geo)
+
 ## Описание
 
 модуль для работы с гео-данными: страна, область, город, валюта
