@@ -3,6 +3,7 @@
 namespace yii2lab\geo\domain\repositories\ar;
 
 use yii2lab\domain\data\Query;
+use yii2lab\domain\enums\RelationEnum;
 use yii2lab\domain\repositories\ActiveArRepository;
 
 class CityRepository extends ActiveArRepository {
@@ -21,17 +22,17 @@ class CityRepository extends ActiveArRepository {
 	public function relations() {
 		return [
 			'country' => [
-				'type' => 'one',
+				'type' => RelationEnum::ONE,
 				'field' => 'country_id',
-				'repository' => [
+				'foreign' => [
 					'id' => 'geo.country',
 					'field' => 'id',
 				],
 			],
 			'region' => [
-				'type' => 'one',
+				'type' => RelationEnum::ONE,
 				'field' => 'region_id',
-				'repository' => [
+				'foreign' => [
 					'id' => 'geo.region',
 					'field' => 'id',
 				],

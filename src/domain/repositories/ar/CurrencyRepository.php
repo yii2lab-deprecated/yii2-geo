@@ -2,6 +2,7 @@
 
 namespace yii2lab\geo\domain\repositories\ar;
 
+use yii2lab\domain\enums\RelationEnum;
 use yii2lab\domain\repositories\ActiveArRepository;
 
 class CurrencyRepository extends ActiveArRepository {
@@ -20,9 +21,9 @@ class CurrencyRepository extends ActiveArRepository {
 	public function relations() {
 		return [
 			'country' => [
-				'type' => 'one',
+				'type' => RelationEnum::ONE,
 				'field' => 'country_id',
-				'repository' => [
+				'foreign' => [
 					'id' => 'geo.country',
 					'field' => 'id',
 				],
