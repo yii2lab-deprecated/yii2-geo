@@ -10,7 +10,7 @@ class RegionEntity extends BaseEntity {
     protected $country_id;
     protected $name;
     protected $country;
-    //protected $cities;
+    protected $cities;
 
 	public function rules() {
 		return [

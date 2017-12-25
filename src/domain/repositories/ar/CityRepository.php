@@ -7,9 +7,35 @@ use yii2lab\domain\repositories\ActiveArRepository;
 
 class CityRepository extends ActiveArRepository {
 	
+	public function tableName()
+	{
+		return 'geo_city';
+	}
+	
 	public function uniqueFields() {
 		return [
 			['name'],
+		];
+	}
+	
+	public function relations() {
+		return [
+			'country' => [
+				'type' => 'one',
+				'field' => 'country_id',
+				'repository' => [
+					'id' => 'geo.country',
+					'field' => 'id',
+				],
+			],
+			'region' => [
+				'type' => 'one',
+				'field' => 'region_id',
+				'repository' => [
+					'id' => 'geo.region',
+					'field' => 'id',
+				],
+			],
 		];
 	}
 	
