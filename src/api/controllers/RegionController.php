@@ -3,6 +3,7 @@
 namespace yii2lab\geo\api\controllers;
 
 use common\enums\rbac\PermissionEnum;
+use yii2lab\app\domain\helpers\Config;
 use yii2lab\domain\rest\ActiveControllerWithQuery as Controller;
 
 class RegionController extends Controller
@@ -29,6 +30,7 @@ class RegionController extends Controller
 					],
 				],
 			],
+			'corsFilter' => Config::genCors(),
 		];
 	}
 	
