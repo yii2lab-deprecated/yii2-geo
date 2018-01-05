@@ -5,7 +5,7 @@ use yii2lab\migration\db\MigrationCreateTable as Migration;
 /**
 * Handles the creation of table `city`.
 */
-class m170505_114919_create_geo_city_table extends Migration
+class m171207_114919_create_geo_city_table extends Migration
 {
 	public $table = '{{%geo_city}}';
 

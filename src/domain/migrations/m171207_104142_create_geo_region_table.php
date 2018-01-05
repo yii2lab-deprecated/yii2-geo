@@ -3,11 +3,11 @@
 use yii2lab\migration\db\MigrationCreateTable as Migration;
 
 /**
-* Handles the creation of table `currency`.
+* Handles the creation of table `region`.
 */
-class m170505_160208_create_geo_currency_table extends Migration
+class m171207_104142_create_geo_region_table extends Migration
 {
-	public $table = '{{%geo_currency}}';
+	public $table = '{{%geo_region}}';
 
 	/**
 	 * @inheritdoc
@@ -17,15 +17,13 @@ class m170505_160208_create_geo_currency_table extends Migration
 		return [
 			'id' => $this->primaryKey(),
 			'country_id' => $this->integer(),
-			'code' => $this->string(3),
-			'name' => $this->string(45),
-			'description' => $this->string(255),
+			'name' => $this->string(64),
 		];
 	}
 
 	public function afterCreate()
 	{
-		 $this->myAddForeignKey(
+        $this->myAddForeignKey(
             'country_id',
             '{{%geo_country}}',
             'id',
