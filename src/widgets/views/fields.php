@@ -60,6 +60,8 @@ function attach(name, nameChildren) {
     var id = $('#".$formId."-'+name+'_id').val();
     var data = {};
     data[name+'_id'] = id;
+    data['per-page'] = 9999999;
+    data['sort'] = 'name';
     runRequest(nameChildren, data);
 });
 }
