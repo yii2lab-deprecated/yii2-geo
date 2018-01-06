@@ -62,6 +62,9 @@ class GeoSelector extends Widget
 		$query = Query::forge();
 		if(!empty($fieldName)) {
 			$value = $this->model->hasProperty($fieldName) ? $this->model->{$fieldName} : ArrayHelper::getValue($this->default, $fieldName);
+			if(empty($value)) {
+				return [];
+			}
 			$query->where($fieldName, $value);
 		}
 		$collection = Yii::$app->geo->{$entityName}->all($query);
