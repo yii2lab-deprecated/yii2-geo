@@ -53,15 +53,16 @@ class CityTest extends Unit
 		$query->with('region.cities.region');
 		$query->with('region.country.currency');
 		$query->with('country.currency');
-		$query->where('id', 1896);
+		$query->where('id', 2000);
 		$query->limit(1);
 		$collection = Yii::$app->geo->city->all($query);
 		
+		$this->tester->assertCount(1, $collection);
 		$this->tester->assertCollection([
 			[
-				'id' => 1896,
+				'id' => 2000,
 				'country_id' => 1894,
-				'region_id' => 1895,
+				'region_id' => 1994,
 				'country' => [
 					'id' => 1894,
 					'currency' => [
@@ -71,7 +72,7 @@ class CityTest extends Unit
 					],
 				],
 				'region' => [
-					'id' => 1895,
+					'id' => 1994,
 					'country_id' => 1894,
 					'country' => [
 						'id' => 1894,
@@ -83,9 +84,9 @@ class CityTest extends Unit
 					],
 					'cities' => [
 						[
-							'id' => '1896',
+							'id' => '1995',
 							'country_id' => '1894',
-							'region_id' => '1895',
+							'region_id' => '1994',
 							'country' => [
 								'id' => 1894,
 								'currency' => [
@@ -95,7 +96,7 @@ class CityTest extends Unit
 								],
 							],
 							'region' => [
-								'id' => 1895,
+								'id' => 1994,
 								'country_id' => 1894,
 							],
 						],
@@ -114,14 +115,14 @@ class CityTest extends Unit
 		$query->with('region.cities.region');
 		$query->with('region.country.currency');
 		$query->with('country.currency');
-		$query->where('id', 1896);
+		$query->where('id', 2000);
 		$query->limit(1);
 		$entity = Yii::$app->geo->city->one($query);
 		
 		$this->tester->assertEntity([
-			'id' => 1896,
+			'id' => 2000,
 			'country_id' => 1894,
-			'region_id' => 1895,
+			'region_id' => 1994,
 			'country' => [
 				'id' => 1894,
 				'currency' => [
@@ -131,7 +132,7 @@ class CityTest extends Unit
 				],
 			],
 			'region' => [
-				'id' => 1895,
+				'id' => 1994,
 				'country_id' => 1894,
 				'country' => [
 					'id' => 1894,
@@ -143,9 +144,9 @@ class CityTest extends Unit
 				],
 				'cities' => [
 					[
-						'id' => '1896',
+						'id' => '1995',
 						'country_id' => '1894',
-						'region_id' => '1895',
+						'region_id' => '1994',
 						'country' => [
 							'id' => 1894,
 							'currency' => [
@@ -155,7 +156,7 @@ class CityTest extends Unit
 							],
 						],
 						'region' => [
-							'id' => 1895,
+							'id' => 1994,
 							'country_id' => 1894,
 						],
 					],
