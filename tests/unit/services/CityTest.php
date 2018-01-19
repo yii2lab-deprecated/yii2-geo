@@ -27,19 +27,19 @@ class CityTest extends Unit
         $this->tester->haveFixtures([
 	        [
 		        'class' => GeoCityFixture::className(),
-		        //'dataFile' => '@tests/_fixtures/data/user.php'
+		        'dataFile' => 'tests/_fixtures/data/geo_city.php'
 	        ],
 	        [
 		        'class' => GeoRegionFixture::className(),
-		        //'dataFile' => '@tests/_fixtures/data/user.php'
+		        'dataFile' => 'tests/_fixtures/data/geo_region.php'
 	        ],
 	        [
 		        'class' => GeoCountryFixture::className(),
-		        //'dataFile' => '@tests/_fixtures/data/user.php'
+		        'dataFile' => 'tests/_fixtures/data/geo_country.php'
 	        ],
         	[
                 'class' => GeoCurrencyFixture::className(),
-                //'dataFile' => '@tests/_fixtures/data/user.php'
+                'dataFile' => 'tests/_fixtures/data/geo_currency.php'
             ],
         ]);
     }
@@ -47,7 +47,7 @@ class CityTest extends Unit
 	public function testAllWithRelations()
 	{
 		
-		/** @var BaseEntity $collection */
+		/** @var BaseEntity[] $collection */
 		$query = Query::forge();
 		$query->with('region.cities.country.currency');
 		$query->with('region.cities.region');
@@ -55,7 +55,6 @@ class CityTest extends Unit
 		$query->with('country.currency');
 		$query->where('id', 1896);
 		$query->limit(1);
-		/** @var array $collection */
 		$collection = Yii::$app->geo->city->all($query);
 		
 		$this->tester->assertCollection([
@@ -103,8 +102,66 @@ class CityTest extends Unit
 					],
 				],
 			]
-			
 		], $collection);
 	}
 	
+	public function testOneWithRelations()
+	{
+		
+		/** @var BaseEntity $entity */
+		$query = Query::forge();
+		$query->with('region.cities.country.currency');
+		$query->with('region.cities.region');
+		$query->with('region.country.currency');
+		$query->with('country.currency');
+		$query->where('id', 1896);
+		$query->limit(1);
+		$entity = Yii::$app->geo->city->one($query);
+		
+		$this->tester->assertEntity([
+			'id' => 1896,
+			'country_id' => 1894,
+			'region_id' => 1895,
+			'country' => [
+				'id' => 1894,
+				'currency' => [
+					'id' => 1,
+					'country_id' => 1894,
+					'code' => 'KZT',
+				],
+			],
+			'region' => [
+				'id' => 1895,
+				'country_id' => 1894,
+				'country' => [
+					'id' => 1894,
+					'currency' => [
+						'id' => 1,
+						'country_id' => 1894,
+						'code' => 'KZT',
+					],
+				],
+				'cities' => [
+					[
+						'id' => '1896',
+						'country_id' => '1894',
+						'region_id' => '1895',
+						'country' => [
+							'id' => 1894,
+							'currency' => [
+								'id' => 1,
+								'country_id' => 1894,
+								'code' => 'KZT',
+							],
+						],
+						'region' => [
+							'id' => 1895,
+							'country_id' => 1894,
+						],
+					],
+				],
+			]
+		
+		], $entity);
+	}
 }
