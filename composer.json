@@ -12,7 +12,8 @@
 	"minimum-stability": "dev",
 	"autoload": {
 		"psr-4": {
-			"yii2lab\\geo\\": "src"
+			"yii2lab\\geo\\": "src",
+			"yii2lab\\geo\\tests\\": "tests"
 		}
 	},
 	"require": {
