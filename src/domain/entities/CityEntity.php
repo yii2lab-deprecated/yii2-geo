@@ -15,7 +15,7 @@ class CityEntity extends BaseEntity {
 
 	public function rules() {
 		return [
-			[['id', 'country_id', 'name'], 'required'],
+			[['country_id', 'name'], 'required'],
 			[['name'], 'trim'],
 			['name', 'string', 'min' => 2],
 			[['id', 'country_id', 'region_id'], 'integer'],
