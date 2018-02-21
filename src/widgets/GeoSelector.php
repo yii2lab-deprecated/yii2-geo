@@ -2,6 +2,7 @@
 
 namespace yii2lab\geo\widgets;
 
+use common\enums\app\ApiVersionEnum;
 use Yii;
 use yii\base\Widget;
 use yii2lab\domain\data\Query;
@@ -13,6 +14,11 @@ class GeoSelector extends Widget
 	
 	public $form;
 	public $model;
+    public $url = [
+        'country' => ApiVersionEnum::VERSION_DEFAULT . '/country',
+        'region' => ApiVersionEnum::VERSION_DEFAULT . '/region',
+        'city' => ApiVersionEnum::VERSION_DEFAULT . '/city',
+    ];
 	public $default = [];
 	
 	/**
@@ -26,7 +32,7 @@ class GeoSelector extends Widget
 				//'primaryKey' => 'id',
 				//'elementName' => 'country_id',
 				//'elementId' => $this->formId . '-country_id',
-				'uri' => 'v4/country',
+				'uri' => $this->url['country'],
 				'prompt' => Yii::t('geo/main', 'select_country'),
 				'childName' => 'region',
 				'options' => $this->getCollection('country'),
@@ -35,7 +41,7 @@ class GeoSelector extends Widget
 				//'primaryKey' => 'id',
 				//'elementName' => 'region_id',
 				//'elementId' => $this->formId . '-region_id',
-				'uri' => 'v4/region',
+				'uri' => $this->url['region'],
 				'prompt' => Yii::t('geo/main', 'select_region'),
 				'childName' => 'city',
 				'options' => $this->getCollection('region', 'country_id'),
@@ -44,7 +50,7 @@ class GeoSelector extends Widget
 				//'primaryKey' => 'id',
 				//'elementName' => 'city_id',
 				//'elementId' => $this->formId . '-city_id',
-				'uri' => 'v4/city',
+				'uri' => $this->url['city'],
 				'prompt' => Yii::t('geo/main', 'select_city'),
 				'childName' => null,
 				'options' => $this->getCollection('city', 'region_id'),
