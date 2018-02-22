@@ -27,19 +27,19 @@ class CityTest extends Unit
     {
         $this->tester->haveFixtures([
 	        [
-		        'class' => GeoCityFixture::className(),
+		        'class' => GeoCityFixture::class,
 		        'dataFile' => 'tests/_fixtures/data/geo_city.php'
 	        ],
 	        [
-		        'class' => GeoRegionFixture::className(),
+		        'class' => GeoRegionFixture::class,
 		        'dataFile' => 'tests/_fixtures/data/geo_region.php'
 	        ],
 	        [
-		        'class' => GeoCountryFixture::className(),
+		        'class' => GeoCountryFixture::class,
 		        'dataFile' => 'tests/_fixtures/data/geo_country.php'
 	        ],
         	[
-                'class' => GeoCurrencyFixture::className(),
+                'class' => GeoCurrencyFixture::class,
                 'dataFile' => 'tests/_fixtures/data/geo_currency.php'
             ],
         ]);
