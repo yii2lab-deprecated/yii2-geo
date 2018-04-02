@@ -14,12 +14,16 @@ class GeoSelector extends Widget
 	
 	public $form;
 	public $model;
-    public $url = [
-        'country' => ApiVersionEnum::VERSION_DEFAULT . '/country',
-        'region' => ApiVersionEnum::VERSION_DEFAULT . '/region',
-        'city' => ApiVersionEnum::VERSION_DEFAULT . '/city',
-    ];
+	public $url = [];
 	public $default = [];
+	
+	public function init() {
+		parent::init();
+		$version = 'v' . env('api.version.default');
+		$this->url['city'] = isset($this->url['city']) ? $this->url['city'] : $version . '/city';
+		$this->url['region'] = isset($this->url['region']) ? $this->url['region'] : $version . '/region';
+		$this->url['country'] = isset($this->url['country']) ? $this->url['country'] : $version . '/country';
+	}
 	
 	/**
 	 * Runs the widget
