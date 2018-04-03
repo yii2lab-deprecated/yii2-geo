@@ -56,7 +56,7 @@ class CityTest extends Unit
 		$query->with('country.currency');
 		$query->where('id', 2000);
 		$query->limit(1);
-		$collection = Yii::$app->geo->city->all($query);
+		$collection = Yii::$domain->geo->city->all($query);
 		
 		$this->tester->assertCount(1, $collection);
 		$this->tester->assertCollection([
@@ -118,7 +118,7 @@ class CityTest extends Unit
 		$query->with('country.currency');
 		$query->where('id', 2000);
 		$query->limit(1);
-		$entity = Yii::$app->geo->city->one($query);
+		$entity = Yii::$domain->geo->city->one($query);
 		
 		$this->tester->assertEntity([
 			'id' => 2000,

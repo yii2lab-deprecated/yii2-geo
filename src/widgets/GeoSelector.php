@@ -77,7 +77,7 @@ class GeoSelector extends Widget
 			}
 			$query->where($fieldName, $value);
 		}
-		$collection = Yii::$app->geo->{$entityName}->all($query);
+		$collection = Yii::$domain->geo->{$entityName}->all($query);
 		$collection = ArrayHelper::map($collection, 'id', 'name');
 		return $collection;
 	}
