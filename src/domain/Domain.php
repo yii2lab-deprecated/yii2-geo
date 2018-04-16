@@ -2,6 +2,8 @@
 
 namespace yii2lab\geo\domain;
 
+use yii2lab\domain\enums\Driver;
+
 /**
  * Class Domain
  *
@@ -18,10 +20,10 @@ class Domain extends \yii2lab\domain\Domain {
 	public function config() {
 		return [
 			'repositories' => [
-				'region',
-				'city',
-				'country',
-				'currency',
+				'region' => Driver::slave(),
+				'city' => Driver::slave(),
+				'country' => Driver::slave(),
+				'currency' => Driver::slave(),
 			],
 			'services' => [
 				'region',
