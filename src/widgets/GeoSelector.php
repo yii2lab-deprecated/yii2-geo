@@ -2,11 +2,11 @@
 
 namespace yii2lab\geo\widgets;
 
-use common\enums\app\ApiVersionEnum;
 use Yii;
 use yii\base\Widget;
 use yii2lab\domain\data\Query;
 use yii\helpers\ArrayHelper;
+use yii2lab\helpers\ApiVersionConfig;
 use yii2lab\widgets\ajaxSelector\AjaxSelector;
 
 class GeoSelector extends Widget
@@ -19,7 +19,7 @@ class GeoSelector extends Widget
 	
 	public function init() {
 		parent::init();
-		$version = 'v' . env('api.version.default');
+		$version = ApiVersionConfig::defaultApiVersionSting();
 		$this->url['city'] = isset($this->url['city']) ? $this->url['city'] : $version . '/city';
 		$this->url['region'] = isset($this->url['region']) ? $this->url['region'] : $version . '/region';
 		$this->url['country'] = isset($this->url['country']) ? $this->url['country'] : $version . '/country';
