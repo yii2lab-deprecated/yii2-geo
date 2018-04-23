@@ -3,8 +3,8 @@
 $version = API_VERSION_STRING;
 
 return [
-    ["class" => "yii\\rest\\UrlRule", "controller" => ["v1/city" => "geo/city"]],
-    ["class" => "yii\\rest\\UrlRule", "controller" => ["v1/country" => "geo/country"]],
-    ["class" => "yii\\rest\\UrlRule", "controller" => ["v1/currency" => "geo/currency"]],
-    ["class" => "yii\\rest\\UrlRule", "controller" => ["v1/region" => "geo/region"]],
+    ["class" => "yii\\rest\\UrlRule", "controller" => ["{$version}/city" => "geo/city"]],
+    ["class" => "yii\\rest\\UrlRule", "controller" => ["{$version}/country" => "geo/country"]],
+    ["class" => "yii\\rest\\UrlRule", "controller" => ["{$version}/currency" => "geo/currency"]],
+    ["class" => "yii\\rest\\UrlRule", "controller" => ["{$version}/region" => "geo/region"]],
 ];
