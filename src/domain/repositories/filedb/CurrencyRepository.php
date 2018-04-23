@@ -8,9 +8,4 @@ class CurrencyRepository extends ActiveFiledbRepository {
 	
 	protected $schemaClass = true;
 	
-	public function tableName()
-	{
-		return 'geo_currency';
-	}
-	
 }

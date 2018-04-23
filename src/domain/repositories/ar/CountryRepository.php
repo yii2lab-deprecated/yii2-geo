@@ -8,9 +8,4 @@ class CountryRepository extends ActiveArRepository {
 	
 	protected $schemaClass = true;
 	
-	public function tableName()
-	{
-		return 'geo_country';
-	}
-	
 }

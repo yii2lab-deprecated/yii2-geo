@@ -8,9 +8,4 @@ class RegionRepository extends ActiveArRepository {
 	
 	protected $schemaClass = true;
 	
-	public function tableName()
-	{
-		return 'geo_region';
-	}
-	
 }

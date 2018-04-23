@@ -8,9 +8,4 @@ class CurrencyRepository extends ActiveArRepository {
 	
 	protected $schemaClass = true;
 	
-	public function tableName()
-	{
-		return 'geo_currency';
-	}
-	
 }
