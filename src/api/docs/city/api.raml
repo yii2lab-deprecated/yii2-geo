@@ -1,24 +1,19 @@
 description: "Города"
 get:
-    description: |
-        Возвращает список стран
-
-        Для вывода всего списка пишем: `per-page=9999999`
-    is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/get-list.raml
+    description: Возвращает список городов
+    is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/all.raml
     responses:
         200:
             body:
                 application/json:
-                    #type: !include schema/list.json
-                    example: !include example/list.json
+                    example: !include example/all-response-body.json
 post:
-    securedBy: [TPSAuth]
+    securedBy: [Auth]
     description: "Создать страну"
     is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/post.raml
     body:
         application/json:
-            #type: !include schema/add.json
-            example: !include example/add.json
+            example: !include example/create-request-body.json
 
 /{id}:
     uriParameters:
@@ -27,22 +22,20 @@ post:
             type: integer
     get:
         description: "Возвращает страну"
-        is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/get-details.raml
+        is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/one.raml
         responses:
             200:
                 body:
                     application/json:
-                        #type: !include schema/details.json
-                        example: !include example/details.json
+                        example: !include example/one-response-body.json
     put:
-        securedBy: [TPSAuth]
+        securedBy: [Auth]
         description: "Изменить страну"
         is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/put.raml
         body:
             application/json:
-                #type: !include schema/edit.json
-                example: !include example/edit.json
+                example: !include example/update-request-body.json
     delete:
-        securedBy: [TPSAuth]
+        securedBy: [Auth]
         description: "Удалить страну"
         is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/delete.raml

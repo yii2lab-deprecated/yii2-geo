@@ -1,6 +1,6 @@
-description: "Валюты"
+description: "Регионы"
 get:
-    description: Возвращает список валют
+    description: Возвращает список регионов
     is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/all.raml
     responses:
         200:
@@ -9,7 +9,7 @@ get:
                     example: !include example/all-response-body.json
 post:
     securedBy: [Auth]
-    description: "Создать валюту"
+    description: "Создать регион"
     is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/post.raml
     body:
         application/json:
@@ -18,10 +18,10 @@ post:
 /{id}:
     uriParameters:
         id:
-            description: "ID валюты"
+            description: "ID региона"
             type: integer
     get:
-        description: "Возвращает валюту"
+        description: "Возвращает регион"
         is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/one.raml
         responses:
             200:
@@ -30,12 +30,12 @@ post:
                         example: !include example/one-response-body.json
     put:
         securedBy: [Auth]
-        description: "Изменить валюту"
+        description: "Изменить регион"
         is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/put.raml
         body:
             application/json:
                 example: !include example/update-request-body.json
     delete:
         securedBy: [Auth]
-        description: "Удалить валюту"
+        description: "Удалить регион"
         is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/delete.raml
