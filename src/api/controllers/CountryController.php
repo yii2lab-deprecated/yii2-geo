@@ -3,13 +3,13 @@
 namespace yii2lab\geo\api\controllers;
 
 use common\enums\rbac\PermissionEnum;
-use yii2lab\domain\rest\ActiveControllerWithQuery as Controller;
+use yii2lab\rest\domain\rest\ActiveControllerWithQuery as Controller;
 use yii2lab\helpers\Behavior;
 
 class CountryController extends Controller
 {
 	
-	public $serviceName = 'geo.country';
+	public $service = 'geo.country';
 
 	/**
 	 * @inheritdoc
