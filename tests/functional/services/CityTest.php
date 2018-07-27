@@ -2,24 +2,15 @@
 
 namespace tests\functional\services;
 
-use Codeception\Test\Unit;
-use UnitTester;
+use yii2lab\test\Test\Unit;
 use Yii;
 use yii2lab\domain\BaseEntity;
 use yii2lab\domain\data\Query;
-use yii2lab\geo\domain\entities\CityEntity;
 use yii2lab\geo\domain\fixtures\GeoCityFixture;
 use yii2lab\geo\domain\fixtures\GeoCountryFixture;
 use yii2lab\geo\domain\fixtures\GeoCurrencyFixture;
 use yii2lab\geo\domain\fixtures\GeoRegionFixture;
 
-/**
- * Class ArticleTest
- *
- * @package yii2lab\domain\tests\unit\services
- *
- * @property UnitTester $tester
- */
 class CityTest extends Unit
 {
 	
