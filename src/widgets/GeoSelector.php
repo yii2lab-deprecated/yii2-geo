@@ -19,10 +19,10 @@ class GeoSelector extends Widget
 	
 	public function init() {
 		parent::init();
-		$version = ApiVersionConfig::defaultApiVersionSting();
-		$this->url['city'] = isset($this->url['city']) ? $this->url['city'] : $version . '/city';
-		$this->url['region'] = isset($this->url['region']) ? $this->url['region'] : $version . '/region';
-		$this->url['country'] = isset($this->url['country']) ? $this->url['country'] : $version . '/country';
+		$versionSting = ApiVersionConfig::defaultApiVersionSting();
+		$this->url['city'] = isset($this->url['city']) ? $this->url['city'] : $versionSting . '/city';
+		$this->url['region'] = isset($this->url['region']) ? $this->url['region'] : $versionSting . '/region';
+		$this->url['country'] = isset($this->url['country']) ? $this->url['country'] : $versionSting . '/country';
 	}
 	
 	/**
