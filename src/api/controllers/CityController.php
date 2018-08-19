@@ -16,9 +16,9 @@ class CityController extends Controller
 	 */
 	public function behaviors() {
 		return [
-			'authenticator' => Behavior::apiAuth(['create', 'update', 'delete']),
-			'access' => Behavior::access(GeoPermissionEnum::CITY_MANAGE, ['create', 'update', 'delete']),
-			'cors' => Behavior::cors(),
+            'cors' => Behavior::cors(),
+		    'authenticator' => Behavior::apiAuth(['create', 'update', 'delete']),
+            'access' => Behavior::access(GeoPermissionEnum::CITY_MANAGE, ['create', 'update', 'delete']),
 		];
 	}
 	
