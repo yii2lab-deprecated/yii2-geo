@@ -6,7 +6,7 @@ use Yii;
 use yii\base\Widget;
 use yii2lab\domain\data\Query;
 use yii\helpers\ArrayHelper;
-use yii2lab\helpers\ApiVersionConfig;
+use yii2lab\rest\domain\helpers\ApiVersionConfig;
 use yii2lab\extension\widget\ajaxSelector\AjaxSelector;
 
 class GeoSelector extends Widget
