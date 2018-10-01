@@ -5,14 +5,14 @@ namespace yii2lab\geo\domain\entities;
 use yii2lab\domain\BaseEntity;
 
 class CityEntity extends BaseEntity {
-
+	
 	protected $id;
-    protected $country_id;
-    protected $region_id;
-    protected $name;
-    protected $country;
-    protected $region;
-
+	protected $country_id;
+	protected $region_id;
+	protected $name;
+	protected $country;
+	protected $region;
+	
 	public function rules() {
 		return [
 			[['country_id', 'name'], 'required'],
@@ -22,4 +22,17 @@ class CityEntity extends BaseEntity {
 		];
 	}
 	
+	public function fieldType() {
+		return [
+			'id' => 'integer',
+			'country_id' => 'integer',
+			'region_id' => 'integer',
+			'country' => [
+				'type' => CountryEntity::class,
+			],
+			'region' => [
+				'type' => RegionEntity::class,
+			],
+		];
+	}
 }

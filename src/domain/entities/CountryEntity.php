@@ -21,4 +21,12 @@ class CountryEntity extends BaseEntity {
 		];
 	}
 	
+	public function fieldType() {
+		return [
+			'id' => 'integer',
+			'currency' => [
+				'type' => CurrencyEntity::class,
+			],
+		];
+	}
 }

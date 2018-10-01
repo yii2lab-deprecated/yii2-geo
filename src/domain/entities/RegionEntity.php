@@ -20,4 +20,17 @@ class RegionEntity extends BaseEntity {
 		];
 	}
 	
+	public function fieldType() {
+		return [
+			'id' => 'integer',
+			'country_id' => 'integer',
+			'country' => [
+				'type' => CountryEntity::class,
+			],
+			'cities' => [
+				'type' => CityEntity::class,
+				'isCollection' => true,
+			],
+		];
+	}
 }
