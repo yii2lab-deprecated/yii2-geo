@@ -2,8 +2,8 @@
 
 namespace tests\functional\services;
 
+use yii2lab\test\helpers\DataHelper;
 use yii2lab\test\Test\Unit;
-use Yii;
 use yii2lab\domain\BaseEntity;
 use yii2lab\domain\data\Query;
 use yii2lab\geo\domain\fixtures\GeoCityFixture;
@@ -13,6 +13,8 @@ use yii2lab\geo\domain\fixtures\GeoRegionFixture;
 
 class CityTest extends Unit
 {
+	
+	const PACKAGE = 'yii2lab/yii2-geo';
 	
 	public function _before()
     {
@@ -49,53 +51,8 @@ class CityTest extends Unit
 		$query->limit(1);
 		$collection = \App::$domain->geo->city->all($query);
 		
-		$this->tester->assertCount(1, $collection);
-		$this->tester->assertCollection([
-			[
-				'id' => 2000,
-				'country_id' => 1894,
-				'region_id' => 1994,
-				'country' => [
-					'id' => 1894,
-					'currency' => [
-						'id' => 1,
-						'country_id' => 1894,
-						'code' => 'KZT',
-					],
-				],
-				'region' => [
-					'id' => 1994,
-					'country_id' => 1894,
-					'country' => [
-						'id' => 1894,
-						'currency' => [
-							'id' => 1,
-							'country_id' => 1894,
-							'code' => 'KZT',
-						],
-					],
-					'cities' => [
-						[
-							'id' => '1995',
-							'country_id' => '1894',
-							'region_id' => '1994',
-							'country' => [
-								'id' => 1894,
-								'currency' => [
-									'id' => 1,
-									'country_id' => 1894,
-									'code' => 'KZT',
-								],
-							],
-							'region' => [
-								'id' => 1994,
-								'country_id' => 1894,
-							],
-						],
-					],
-				],
-			]
-		], $collection);
+		$expect = DataHelper::loadForTest(self::PACKAGE, __METHOD__, $collection);
+		$this->tester->assertCollection($expect, $collection, true);
 	}
 	
 	public function testOneWithRelations()
@@ -111,51 +68,8 @@ class CityTest extends Unit
 		$query->limit(1);
 		$entity = \App::$domain->geo->city->one($query);
 		
-		$this->tester->assertEntity([
-			'id' => 2000,
-			'country_id' => 1894,
-			'region_id' => 1994,
-			'country' => [
-				'id' => 1894,
-				'currency' => [
-					'id' => 1,
-					'country_id' => 1894,
-					'code' => 'KZT',
-				],
-			],
-			'region' => [
-				'id' => 1994,
-				'country_id' => 1894,
-				'country' => [
-					'id' => 1894,
-					'currency' => [
-						'id' => 1,
-						'country_id' => 1894,
-						'code' => 'KZT',
-					],
-				],
-				'cities' => [
-					[
-						'id' => '1995',
-						'country_id' => '1894',
-						'region_id' => '1994',
-						'country' => [
-							'id' => 1894,
-							'currency' => [
-								'id' => 1,
-								'country_id' => 1894,
-								'code' => 'KZT',
-							],
-						],
-						'region' => [
-							'id' => 1994,
-							'country_id' => 1894,
-						],
-					],
-				],
-			]
-		
-		], $entity);
+		$expect = DataHelper::loadForTest(self::PACKAGE, __METHOD__, $entity);
+		$this->tester->assertEntity($expect, $entity, true);
 	}
 	
 }
