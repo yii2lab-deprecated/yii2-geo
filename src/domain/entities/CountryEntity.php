@@ -9,6 +9,7 @@ class CountryEntity extends BaseEntity {
 	protected $id;
     protected $name;
     protected $currency;
+	protected $phone;
     //protected $cities;
     //protected $regions;
 
@@ -24,9 +25,8 @@ class CountryEntity extends BaseEntity {
 	public function fieldType() {
 		return [
 			'id' => 'integer',
-			'currency' => [
-				'type' => CurrencyEntity::class,
-			],
+			'currency' => CurrencyEntity::class,
+			'phone' => PhoneEntity::class,
 		];
 	}
 }

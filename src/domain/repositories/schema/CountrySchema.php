@@ -23,6 +23,14 @@ class CountrySchema extends BaseSchema {
 					'field' => 'country_id',
 				],
 			],
+			'phone' => [
+				'type' => RelationEnum::ONE,
+				'field' => 'id',
+				'foreign' => [
+					'id' => 'geo.phone',
+					'field' => 'country_id',
+				],
+			],
 		];
 	}
 	
