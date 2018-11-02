@@ -11,6 +11,9 @@ $config = [
 				'dbname' => TestHelper::PACKAGE_TEST_DB_FILE,
 			],
 		],
+		'filedb' => [
+			'path' => '@tests/_application/common/data',
+		],
 	],
 ];
 
