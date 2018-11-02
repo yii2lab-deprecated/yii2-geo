@@ -41,4 +41,12 @@ class PhoneService extends BaseActiveService implements PhoneInterface {
 		return PhoneHelper::formatByMask($phone, $phoneEntity->mask);
 	}
 	
+	public function isValid(string $phone) {
+		try {
+			$this->oneByPhone($phone);
+			return true;
+		} catch(NotFoundHttpException $e) {
+			return false;
+		}
+	}
 }

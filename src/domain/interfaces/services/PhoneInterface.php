@@ -4,6 +4,7 @@ namespace yii2lab\geo\domain\interfaces\services;
 
 use yii2lab\domain\interfaces\services\CrudInterface;
 use yii2lab\geo\domain\entities\PhoneEntity;
+use yii2lab\geo\domain\entities\PhoneInfoEntity;
 
 /**
  * Interface PhoneInterface
@@ -16,6 +17,13 @@ use yii2lab\geo\domain\entities\PhoneEntity;
 interface PhoneInterface extends CrudInterface {
 	
 	public function oneByPhone(string $phone) : PhoneEntity;
+	
+	/**
+	 * @param string $phone
+	 *
+	 * @return PhoneInfoEntity
+	 */
 	public function parse(string $phone);
 	public function format(string $phone);
+	public function isValid(string $phone);
 }
