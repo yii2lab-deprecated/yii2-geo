@@ -4,6 +4,16 @@ namespace yii2lab\geo\domain\entities;
 
 use yii2lab\domain\BaseEntity;
 
+/**
+ * Class CountryEntity
+ *
+ * @package yii2lab\geo\domain\entities
+ *
+ * @property $id
+ * @property $name
+ * @property $currency
+ * @property $phone
+ */
 class CountryEntity extends BaseEntity {
 	
 	protected $id;

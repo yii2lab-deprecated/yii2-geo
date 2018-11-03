@@ -3,6 +3,7 @@
 namespace yii2lab\geo\domain\services;
 
 use yii\web\NotFoundHttpException;
+use yii2lab\domain\data\Query;
 use yii2lab\geo\domain\entities\PhoneEntity;
 use yii2lab\geo\domain\helpers\PhoneHelper;
 use yii2lab\geo\domain\interfaces\services\PhoneInterface;
@@ -18,9 +19,9 @@ use yii2lab\domain\services\base\BaseActiveService;
  */
 class PhoneService extends BaseActiveService implements PhoneInterface {
 
-	public function oneByPhone(string $phone) : PhoneEntity {
+	public function oneByPhone(string $phone, Query $query = null) : PhoneEntity {
 		/** @var PhoneEntity[] $collection */
-		$collection = $this->all();
+		$collection = $this->all($query);
 		foreach($collection as $phoneEntity) {
 			$isMatch = PhoneHelper::matchPhone($phone, $phoneEntity->rule);
 			if($isMatch) {
