@@ -1,4 +1,4 @@
-namespace: "yii2lab\\yii2geo"
+namespace: "yii2lab\\geo"
 paths:
     tests: tests
     log: tests/_output

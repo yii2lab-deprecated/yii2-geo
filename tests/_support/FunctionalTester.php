@@ -1,5 +1,5 @@
 <?php
-namespace yii2lab\yii2geo;
+namespace yii2lab\geo;
 /**
  * Inherited Methods
  * @method void wantToTest($text)
