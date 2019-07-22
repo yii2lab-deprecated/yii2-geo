@@ -13,8 +13,8 @@ class PhoneTest extends Unit {
 	public function testAll() {
 		$collection = \App::$domain->geo->phone->all();
 		
-//		$expect = DataHelper::loadForTest(self::PACKAGE, __METHOD__, $collection);
-//		$this->tester->assertCollection($expect, $collection, true);
+		$expect = DataHelper::loadForTest(self::PACKAGE, __METHOD__, $collection);
+		$this->tester->assertCollection($expect, $collection, true);
 	}
 	
 	public function testOneByPhoneUz() {
