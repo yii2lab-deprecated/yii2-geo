@@ -1,4 +1,5 @@
 namespace: "yii2lab\\geo"
+bootstrap: _bootstrap.php
 paths:
     tests: tests
     log: tests/_output

@@ -2,7 +2,6 @@
 
 namespace tests\functional\services;
 
-use yii2lab\geo\tests\_fixtures\CityFixture;
 use yii2lab\test\helpers\DataHelper;
 use yii2lab\test\Test\Unit;
 use yii2lab\domain\BaseEntity;
@@ -14,9 +13,9 @@ use yii2lab\geo\domain\fixtures\GeoRegionFixture;
 
 class CityTest extends Unit
 {
-	
+
 	const PACKAGE = 'yii2lab/yii2-geo';
-	
+
 	public function _before()
     {
         $this->tester->haveFixtures([
@@ -38,10 +37,10 @@ class CityTest extends Unit
             ],
         ]);
     }
-    
+
 	public function testAllWithRelations()
 	{
-		
+
 		/** @var BaseEntity[] $collection */
 		$query = Query::forge();
 		$query->with('region.cities.country.currency');
@@ -54,10 +53,10 @@ class CityTest extends Unit
 		$expect = DataHelper::loadForTest(self::PACKAGE, __METHOD__, $collection);
 		$this->tester->assertCollection($expect, $collection, true);
 	}
-	
+
 	public function testOneWithRelations()
 	{
-		
+
 		/** @var BaseEntity $entity */
 		$query = Query::forge();
 		$query->with('region.cities.country.currency');
@@ -70,5 +69,5 @@ class CityTest extends Unit
 		$expect = DataHelper::loadForTest(self::PACKAGE, __METHOD__, $entity);
 		$this->tester->assertEntity($expect, $entity, true);
 	}
-	
+
 }
