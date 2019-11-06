@@ -22,22 +22,5 @@ class m171207_114919_create_geo_city_table extends Migration
 		];
 	}
 
-	public function afterCreate()
-	{
-		$this->myAddForeignKey(
-			'country_id',
-			'{{%geo_country}}',
-			'id',
-			'CASCADE',
-			'CASCADE'
-		);
-        $this->myAddForeignKey(
-            'region_id',
-            '{{%geo_region}}',
-            'id',
-            'CASCADE',
-            'CASCADE'
-        );
-	}
 
 }

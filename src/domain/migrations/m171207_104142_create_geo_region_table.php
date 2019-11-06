@@ -21,15 +21,5 @@ class m171207_104142_create_geo_region_table extends Migration
 		];
 	}
 
-	public function afterCreate()
-	{
-        $this->myAddForeignKey(
-            'country_id',
-            '{{%geo_country}}',
-            'id',
-            'CASCADE',
-            'CASCADE'
-        );
-	}
 
 }

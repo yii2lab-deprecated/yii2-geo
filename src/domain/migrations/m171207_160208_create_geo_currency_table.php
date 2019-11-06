@@ -23,15 +23,6 @@ class m171207_160208_create_geo_currency_table extends Migration
 		];
 	}
 
-	public function afterCreate()
-	{
-		 $this->myAddForeignKey(
-            'country_id',
-            '{{%geo_country}}',
-            'id',
-            'CASCADE',
-            'CASCADE'
-        );
-	}
+
 
 }

@@ -20,10 +20,5 @@ class m171207_004915_create_geo_country_table extends Migration
 		];
 	}
 
-	public function afterCreate()
-	{
-		//$this->myCreateIndexUnique(['name_short']);
-		//$this->myCreateIndexUnique(['name_full']);
-	}
 
 }

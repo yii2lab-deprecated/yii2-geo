@@ -21,19 +21,19 @@ class CityTest extends Unit
         $this->tester->haveFixtures([
 	        [
 		        'class' => GeoCityFixture::class,
-		        'dataFile' => '@vendor/yii2lab/yii2-geo/tests/_fixtures/data/geo_city.php'
+		        'dataFile' => '@vendor/yii2lab/yii2-geo/domain/fixtures/data/geo_city.php'
 	        ],
 	        [
 		        'class' => GeoRegionFixture::class,
-		        'dataFile' => '@vendor/yii2lab/yii2-geo/tests/_fixtures/data/geo_region.php'
+		        'dataFile' => '@vendor/yii2lab/yii2-geo/domain/fixtures/data/geo_region.php'
 	        ],
 	        [
 		        'class' => GeoCountryFixture::class,
-		        'dataFile' => '@vendor/yii2lab/yii2-geo/tests/_fixtures/data/geo_country.php'
+		        'dataFile' => '@vendor/yii2lab/yii2-geo/domain/fixtures/data/geo_country.php'
 	        ],
         	[
                 'class' => GeoCurrencyFixture::class,
-                'dataFile' => '@vendor/yii2lab/yii2-geo/tests/_fixtures/data/geo_currency.php'
+                'dataFile' => '@vendor/yii2lab/yii2-geo/domain/fixtures/data/geo_currency.php'
             ],
         ]);
     }
