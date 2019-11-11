@@ -16,27 +16,7 @@ class CityTest extends Unit
 
 	const PACKAGE = 'yii2lab/yii2-geo';
 
-	public function _before()
-    {
-        $this->tester->haveFixtures([
-	        [
-		        'class' => GeoCityFixture::class,
-		        'dataFile' => '@vendor/yii2lab/yii2-geo/domain/fixtures/data/geo_city.php'
-	        ],
-	        [
-		        'class' => GeoRegionFixture::class,
-		        'dataFile' => '@vendor/yii2lab/yii2-geo/domain/fixtures/data/geo_region.php'
-	        ],
-	        [
-		        'class' => GeoCountryFixture::class,
-		        'dataFile' => '@vendor/yii2lab/yii2-geo/domain/fixtures/data/geo_country.php'
-	        ],
-        	[
-                'class' => GeoCurrencyFixture::class,
-                'dataFile' => '@vendor/yii2lab/yii2-geo/domain/fixtures/data/geo_currency.php'
-            ],
-        ]);
-    }
+
 
 	public function testAllWithRelations()
 	{
