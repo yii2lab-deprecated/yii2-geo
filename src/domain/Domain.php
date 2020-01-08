@@ -24,7 +24,7 @@ class Domain extends \yii2lab\domain\Domain {
 				'city' => Driver::slave(),
 				'country' => Driver::slave(),
 				'currency' => Driver::slave(),
-				'phone' => Driver::FILEDB,
+				'phone' => Driver::slave(),
 			],
 			'services' => [
 				'region',
